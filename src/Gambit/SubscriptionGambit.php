@@ -20,7 +20,7 @@ class SubscriptionGambit extends AbstractRegexGambit
     /**
      * {@inheritdoc}
      */
-    protected $pattern = 'is:(follow|ignor)(?:ing|ed)';
+    protected $pattern = 'is:(follow|ignor|bookmark)(?:ing|ed)';
 
     /**
      * {@inheritdoc}
