@@ -34,7 +34,7 @@ class AddClientAssets
                 __DIR__.'/../../js/forum/dist/extension.js',
                 __DIR__.'/../../less/forum/extension.less'
             ]);
-            $event->addBootstrapper('flarum/subscriptions/main');
+            $event->addBootstrapper('jordanjay29/bookmarks/main');
         }
     }
 }

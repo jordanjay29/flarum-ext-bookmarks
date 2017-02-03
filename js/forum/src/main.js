@@ -11,7 +11,7 @@ import addSubscriptionSettings from 'jordanjay29/bookmarks/addSubscriptionSettin
 
 import NewPostNotification from 'jordanjay29/bookmarks/components/NewPostNotification';
 
-app.initializers.add('subscriptions', function() {
+app.initializers.add('bookmarks', function() {
   app.notificationComponents.newPost = NewPostNotification;
 
   Discussion.prototype.subscription = Model.attribute('subscription');
