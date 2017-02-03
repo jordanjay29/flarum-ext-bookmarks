@@ -12,6 +12,7 @@
 namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Event\ConfigureWebApp;
+use Flarum\Event\ConfigureLocales;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class AddClientAssets
