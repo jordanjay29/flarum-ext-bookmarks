@@ -53,6 +53,21 @@ class FilterDiscussionListBySubscription
                       ->where('user_id', $actor->id)
                       ->where('subscription', 'ignore');
             });
+
+            $search = $event->search;
+            $query = $search->getQuery();
+            $query->leftJoin('users_discussions', function ($join) use ($search) {
+                $join->on('users_discussions.discussion_id', '=', 'discussions.id')
+                     ->where('discussions.is_sticky', '=', true)
+                     ->where('users_discussions.subscription', '=', 'bookmark');
+            });
+
+            array_unshift($query->orders, [
+                'type' => 'raw',
+                'sql' => "(is_sticky OR (discussions.subscription == 'bookmark')) desc"
+            ]);
+
+            dd($query->toSql();
         }
     }
 
