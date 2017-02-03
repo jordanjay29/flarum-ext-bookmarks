@@ -11,7 +11,7 @@ export default function addSubscriptionControls() {
       const states = {
         none: {label: app.translator.trans('flarum-subscriptions.forum.discussion_controls.follow_button'), icon: 'star', save: 'follow'},
         follow: {label: app.translator.trans('flarum-subscriptions.forum.discussion_controls.unfollow_button'), icon: 'star-o', save: false},
-        bookmark: {label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'), icon: 'bookmark', save: false},
+        bookmark: {label: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button'), icon: 'bookmark', save: false},
         ignore: {label: app.translator.trans('flarum-subscriptions.forum.discussion_controls.unignore_button'), icon: 'eye', save: false}
       };
 

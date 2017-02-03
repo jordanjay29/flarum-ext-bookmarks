@@ -17,7 +17,7 @@ export default function addSubscriptionBadge() {
 
       case 'bookmark':
         badge = Badge.component({
-          label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'),
+          label: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button'),
           icon: 'bookmark',
           type: 'bookmark',
         });

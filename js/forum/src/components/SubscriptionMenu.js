@@ -23,8 +23,8 @@ export default class SubscriptionMenu extends Dropdown {
       {
         subscription: 'bookmark',
         icon: 'bookmark',
-        label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'),
-        description: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_text')
+        label: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button'),
+        description: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_text')
       },
       {
         subscription: 'ignore',
@@ -50,7 +50,7 @@ export default class SubscriptionMenu extends Dropdown {
         break;
 
       case 'bookmark':
-        buttonLabel = app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button');
+        buttonLabel = app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button');
         buttonIcon = 'bookmark';
         break;
 

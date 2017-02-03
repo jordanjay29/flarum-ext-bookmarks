@@ -19,7 +19,7 @@ System.register('jordanjay29/bookmarks/addSubscriptionBadge', ['flarum/extend', 
 
         case 'bookmark':
           badge = Badge.component({
-            label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'),
+            label: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button'),
             icon: 'bookmark',
             type: 'bookmark'
           });
@@ -68,7 +68,7 @@ System.register('jordanjay29/bookmarks/addSubscriptionControls', ['flarum/extend
         var states = {
           none: { label: app.translator.trans('flarum-subscriptions.forum.discussion_controls.follow_button'), icon: 'star', save: 'follow' },
           follow: { label: app.translator.trans('flarum-subscriptions.forum.discussion_controls.unfollow_button'), icon: 'star-o', save: false },
-          bookmark: { label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'), icon: 'bookmark', save: false },
+          bookmark: { label: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button'), icon: 'bookmark', save: false },
           ignore: { label: app.translator.trans('flarum-subscriptions.forum.discussion_controls.unignore_button'), icon: 'eye', save: false }
         };
 
@@ -274,8 +274,8 @@ System.register('jordanjay29/bookmarks/components/SubscriptionMenu', ['flarum/co
             }, {
               subscription: 'bookmark',
               icon: 'bookmark',
-              label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'),
-              description: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_text')
+              label: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button'),
+              description: app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_text')
             }, {
               subscription: 'ignore',
               icon: 'eye-slash',
@@ -302,7 +302,7 @@ System.register('jordanjay29/bookmarks/components/SubscriptionMenu', ['flarum/co
                 break;
 
               case 'bookmark':
-                buttonLabel = app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button');
+                buttonLabel = app.translator.trans('jordanjay29-bookmarks.forum.discussion_controls.bookmark_button');
                 buttonIcon = 'bookmark';
                 break;
 
@@ -466,7 +466,7 @@ System.register('jordanjay29/bookmarks/main', ['flarum/extend', 'flarum/app', 'f
     }],
     execute: function () {
 
-      app.initializers.add('subscriptions', function () {
+      app.initializers.add('bookmarks', function () {
         app.notificationComponents.newPost = NewPostNotification;
 
         Discussion.prototype.subscription = Model.attribute('subscription');
