@@ -71,7 +71,7 @@ class FilterDiscussionListBySubscription
 //                'sql' => "(is_sticky OR (discussions.subscription == 'bookmark')) desc"
 //            ]);
 
-//            dd($query->toSql();
+            dd($query->toSql();
         }
     }
 
