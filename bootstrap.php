@@ -21,5 +21,5 @@ return function (Dispatcher $events, Factory $views) {
     $events->subscribe(Listener\SendNotificationWhenReplyIsPosted::class);
     $events->subscribe(Listener\FollowAfterReply::class);
 
-    $views->addNamespace('flarum-bookmarks', __DIR__.'/views');
+    $views->addNamespace('jordanjay29-bookmarks', __DIR__.'/views');
 };
