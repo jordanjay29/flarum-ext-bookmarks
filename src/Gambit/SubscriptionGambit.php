@@ -36,7 +36,7 @@ class SubscriptionGambit extends AbstractRegexGambit
                   ->from('users_discussions')
                   ->where('discussions.id', new Expression('discussion_id'))
                   ->where('user_id', $actor->id)
-                  ->where('subscription', $matches[1] === 'follow' || 'bookmak' ? 'follow' : 'ignore');
+                  ->where('subscription', $matches[1] === 'follow' || 'bookmark' ? 'follow' : 'ignore');
         });
     }
 }
