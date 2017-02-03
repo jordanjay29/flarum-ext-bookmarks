@@ -22,6 +22,7 @@ class AddClientAssets
     public function subscribe(Dispatcher $events)
     {
         $events->listen(ConfigureWebApp::class, [$this, 'addAssets']);
+        $events->listen(ConfigureLocales::class, [$this, 'addLocales']);
     }
 
     /**
@@ -35,6 +36,15 @@ class AddClientAssets
                 __DIR__.'/../../less/forum/extension.less'
             ]);
             $event->addBootstrapper('jordanjay29/bookmarks/main');
+        }
+    }
+
+    public function addLocales(ConfigureLocales $event)
+    {
+        foreach (new DirectoryIterator(__DIR__ .'/../../locale') as $file) {
+            if ($file->isFile() && in_array($file->getExtension(), ['yml', 'yaml'])) {
+                $event->locales->addTranslations($file->getBasename('.' . $file->getExtension()), $file->getPathname());
+            }
         }
     }
 }
