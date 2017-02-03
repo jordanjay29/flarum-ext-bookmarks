@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Flarum\Subscriptions\Listener;
+use Jordanjay29\Bookmarks\Listener;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\View\Factory;
 
@@ -21,5 +21,5 @@ return function (Dispatcher $events, Factory $views) {
     $events->subscribe(Listener\SendNotificationWhenReplyIsPosted::class);
     $events->subscribe(Listener\FollowAfterReply::class);
 
-    $views->addNamespace('flarum-subscriptions', __DIR__.'/views');
+    $views->addNamespace('flarum-bookmarks', __DIR__.'/views');
 };

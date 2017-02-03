@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Listener;
+namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Event\ConfigureWebApp;
 use Illuminate\Contracts\Events\Dispatcher;

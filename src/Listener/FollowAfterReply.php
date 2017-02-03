@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Listener;
+namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Core\Access\AssertPermissionTrait;
 use Flarum\Event\ConfigureUserPreferences;
@@ -49,7 +49,9 @@ class FollowAfterReply
 
             $state = $event->post->discussion->stateFor($actor);
 
-            $state->subscription = 'follow';
+            if ($state->subscription != 'bookmark') {
+                $state->subscription = 'follow';
+            }
             $state->save();
         }
     }

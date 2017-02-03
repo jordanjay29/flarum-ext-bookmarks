@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Listener;
+namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Event\PrepareApiAttributes;

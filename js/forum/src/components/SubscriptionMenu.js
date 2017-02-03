@@ -3,7 +3,7 @@ import Button from 'flarum/components/Button';
 import icon from 'flarum/helpers/icon';
 import extractText from 'flarum/utils/extractText';
 
-import SubscriptionMenuItem from 'flarum/subscriptions/components/SubscriptionMenuItem';
+import SubscriptionMenuItem from 'jordanjay29/bookmarks/components/SubscriptionMenuItem';
 
 export default class SubscriptionMenu extends Dropdown {
   init() {
@@ -19,6 +19,12 @@ export default class SubscriptionMenu extends Dropdown {
         icon: 'star',
         label: app.translator.trans('flarum-subscriptions.forum.sub_controls.following_button'),
         description: app.translator.trans('flarum-subscriptions.forum.sub_controls.following_text')
+      },
+      {
+        subscription: 'bookmark',
+        icon: 'bookmark',
+        label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'),
+        description: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_text')
       },
       {
         subscription: 'ignore',
@@ -43,6 +49,11 @@ export default class SubscriptionMenu extends Dropdown {
         buttonIcon = 'star';
         break;
 
+      case 'bookmark':
+        buttonLabel = app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button');
+        buttonIcon = 'bookmark';
+        break;
+
       case 'ignore':
         buttonLabel = app.translator.trans('flarum-subscriptions.forum.sub_controls.ignoring_button');
         buttonIcon = 'eye-slash';
@@ -63,7 +74,7 @@ export default class SubscriptionMenu extends Dropdown {
       className: 'Button SubscriptionMenu-button ' + buttonClass,
       icon: buttonIcon,
       children: buttonLabel,
-      onclick: this.saveSubscription.bind(this, discussion, ['follow', 'ignore'].indexOf(subscription) !== -1 ? false : 'follow'),
+      onclick: this.saveSubscription.bind(this, discussion, ['follow', 'bookmark', 'ignore'].indexOf(subscription) !== -1 ? false : 'follow'),
       title: title
     };
 

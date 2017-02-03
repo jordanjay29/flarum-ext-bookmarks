@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Notification;
+namespace Jordanjay29\Bookmarks\Notification;
 
 use Flarum\Core\Discussion;
 use Flarum\Core\Notification\BlueprintInterface;

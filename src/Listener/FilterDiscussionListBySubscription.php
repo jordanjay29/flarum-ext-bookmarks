@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Listener;
+namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Event\ConfigureDiscussionGambits;
 use Flarum\Event\ConfigureDiscussionSearch;
 use Flarum\Event\ConfigureForumRoutes;
-use Flarum\Subscriptions\Gambit\SubscriptionGambit;
+use Jordanjay29\Bookmarks\Gambit\SubscriptionGambit;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Query\Expression;
 

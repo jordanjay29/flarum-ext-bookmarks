@@ -1,5 +1,5 @@
 {
-    "name": "flarum/flarum-ext-subscriptions",
+    "name": "jordanjay29/flarum-ext-bookmarks",
     "description": "Allow users to follow discussions and receive notifications for new posts.",
     "type": "flarum-extension",
     "keywords": ["discussion"],
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Flarum\\Subscriptions\\": "src/"
+            "Jordanjay29\\Bookmarks\\": "src/"
         }
     },
     "extra": {
@@ -27,7 +27,7 @@
             "dev-master": "0.1.x-dev"
         },
         "flarum-extension": {
-            "title": "Subscriptions",
+            "title": "bookmarks",
             "icon": {
                 "name": "star",
                 "backgroundColor": "#ffea7b",

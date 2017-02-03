@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Listener;
+namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Core\Access\AssertPermissionTrait;
 use Flarum\Event\DiscussionWillBeSaved;
@@ -43,7 +43,7 @@ class SaveSubscriptionToDatabase
 
             $state = $discussion->stateFor($actor);
 
-            if (! in_array($subscription, ['follow', 'ignore'])) {
+            if (! in_array($subscription, ['follow', 'bookmark', 'ignore'])) {
                 $subscription = null;
             }
 

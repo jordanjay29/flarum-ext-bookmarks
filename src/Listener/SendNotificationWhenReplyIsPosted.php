@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Listener;
+namespace Jordanjay29\Bookmarks\Listener;
 
 use Flarum\Api\Serializer\DiscussionBasicSerializer;
 use Flarum\Core\Notification\NotificationSyncer;
@@ -19,7 +19,7 @@ use Flarum\Event\PostWasDeleted;
 use Flarum\Event\PostWasHidden;
 use Flarum\Event\PostWasPosted;
 use Flarum\Event\PostWasRestored;
-use Flarum\Subscriptions\Notification\NewPostBlueprint;
+use Jordanjay29\Bookmarks\Notification\NewPostBlueprint;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class SendNotificationWhenReplyIsPosted

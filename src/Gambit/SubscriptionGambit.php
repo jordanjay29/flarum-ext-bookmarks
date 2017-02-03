@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Subscriptions\Gambit;
+namespace Jordanjay29\Bookmarks\Gambit;
 
 use Flarum\Core\Search\AbstractRegexGambit;
 use Flarum\Core\Search\AbstractSearch;
@@ -36,7 +36,7 @@ class SubscriptionGambit extends AbstractRegexGambit
                   ->from('users_discussions')
                   ->where('discussions.id', new Expression('discussion_id'))
                   ->where('user_id', $actor->id)
-                  ->where('subscription', $matches[1] === 'follow' ? 'follow' : 'ignore');
+                  ->where('subscription', $matches[1] === 'follow' || 'bookmak' ? 'follow' : 'ignore');
         });
     }
 }

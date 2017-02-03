@@ -15,6 +15,14 @@ export default function addSubscriptionBadge() {
         });
         break;
 
+      case 'bookmark':
+        badge = Badge.component({
+          label: app.translator.trans('flarum-bookmarks.forum.discussion_controls.bookmark_button'),
+          icon: 'bookmark',
+          type: 'bookmark',
+        });
+        break;
+
       case 'ignore':
         badge = Badge.component({
           label: app.translator.trans('flarum-subscriptions.forum.badge.ignoring_tooltip'),
