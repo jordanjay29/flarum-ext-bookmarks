@@ -62,14 +62,14 @@ class FilterDiscussionListBySubscription
                      ->where('users_discussions.subscription', '=', 'bookmark');
             });
 
-//            if (! is_array($query->orders)) {
-//               $query->orders = [];
-//           }
+            if (! is_array($query->orders)) {
+               $query->orders = [];
+           }
 
-//            array_unshift($query->orders, [
-//                'type' => 'raw',
-//                'sql' => "(is_sticky OR (discussions.subscription == 'bookmark')) desc"
-//            ]);
+            array_unshift($query->orders, [
+                'type' => 'raw',
+                'sql' => "(is_sticky OR (discussions.subscription == 'bookmark')) desc"
+            ]);
 
             dd($query->toSql());
         }
