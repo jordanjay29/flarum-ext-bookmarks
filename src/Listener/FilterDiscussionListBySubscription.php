@@ -17,6 +17,7 @@ use Flarum\Event\ConfigureForumRoutes;
 use Jordanjay29\Bookmarks\Gambit\SubscriptionGambit;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Query\Expression;
+use Illuminate\Database\Query\Builder;
 
 class FilterDiscussionListBySubscription
 {
@@ -68,7 +69,7 @@ class FilterDiscussionListBySubscription
 
             array_unshift($query->orders, [
                 'type' => 'raw',
-                'sql' => "(is_sticky OR (subscription == 'bookmark')) desc"
+                'sql' => "(is_sticky OR (subscription = 'bookmark')) desc"
             ]);
 
 //            dd($query->toSql());
