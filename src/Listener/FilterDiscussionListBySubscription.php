@@ -69,7 +69,7 @@ class FilterDiscussionListBySubscription
 
             array_unshift($query->orders, [
                 'type' => 'raw',
-                'sql' => "(is_sticky OR (subscription = 'bookmark')) desc"
+                'sql' => "is_sticky desc, CASE WHEN subscription = 'bookmark' THEN 0 ELSE 1 END desc"
             ]);
 
 //            dd($query->toSql());
