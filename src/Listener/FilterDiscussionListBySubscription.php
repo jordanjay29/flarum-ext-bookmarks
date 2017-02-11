@@ -44,35 +44,34 @@ class FilterDiscussionListBySubscription
      */
     public function filterIgnored(ConfigureDiscussionSearch $event)
     {
-        if (! $event->criteria->query) {
+        if (!$event->criteria->query) {
             // might be better as `id IN (subquery)`?
             $actor = $event->search->getActor();
-            $event->search->getQuery()->whereNotExists(function ($query) use ($actor) {
-                $query->selectRaw(1)
-                      ->from('users_discussions')
-                      ->where('discussions.id', new Expression('discussion_id'))
-                      ->where('user_id', $actor->id)
-                      ->where('subscription', 'ignore');
-            });
 
-            $search = $event->search;
-            $query = $search->getQuery();
-            $query->leftJoin('users_discussions', function ($join) use ($search) {
-                $join->on('users_discussions.discussion_id', '=', 'discussions.id')
-                     ->where('discussions.is_sticky', '=', true)
-                     ->where('users_discussions.subscription', '=', 'bookmark');
-            });
+            $query = $event->search->getQuery();
 
-            if (! is_array($query->orders)) {
-               $query->orders = [];
-           }
+            $query
+                ->whereNotExists(function (Builder $query) use ($actor) {
+                    $query->selectRaw(1)
+                        ->from('users_discussions')
+                        ->where('discussions.id', new Expression('discussion_id'))
+                        ->where('user_id', $actor->id)
+                        ->where('subscription', 'ignore');
+                })
+                ->orWhere(function (Builder $query) {
+                    $query
+                        ->where('discussions.is_sticky', '=', true)
+                        ->where('users_discussions.subscription', '=', 'bookmark');
+                });
+
+            if (!is_array($query->orders)) {
+                $query->orders = [];
+            }
 
             array_unshift($query->orders, [
                 'type' => 'raw',
                 'sql' => "is_sticky desc, CASE WHEN subscription = 'bookmark' THEN 0 ELSE 1 END desc"
             ]);
-
-//            dd($query->toSql());
         }
     }
 
