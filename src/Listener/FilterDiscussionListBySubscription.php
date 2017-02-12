@@ -60,8 +60,9 @@ class FilterDiscussionListBySubscription
                 })
                 ->orWhere(function (Builder $query) {
                     $query
+			->from('users_discussions')
                         ->where('discussions.is_sticky', '=', true)
-                        ->where('users_discussions.subscription', '=', 'bookmark');
+                        ->where('subscription', '=', 'bookmark');
                 });
 
             if (!is_array($query->orders)) {
@@ -70,7 +71,7 @@ class FilterDiscussionListBySubscription
 
             array_unshift($query->orders, [
                 'type' => 'raw',
-                'sql' => "is_sticky desc, CASE WHEN subscription = 'bookmark' THEN 0 ELSE 1 END desc"
+                'sql' => "is_sticky desc, (CASE subscription WHEN 'bookmark' THEN 1 ELSE 0 END) desc"
             ]);
         }
     }
